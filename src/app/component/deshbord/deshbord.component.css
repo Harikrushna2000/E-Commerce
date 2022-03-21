@@ -1,0 +1,13 @@
+.form-control{
+    border-radius: 3px;
+    width: 600px;
+    margin-left: 20px;
+}
+.serch-icon{
+    position: absolute;
+    z-index: 10;
+    right: 36%;
+    top: 22px;
+    color: blue;
+    font-size: 20px;
+}

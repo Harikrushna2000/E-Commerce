@@ -1,0 +1,53 @@
+<div class="container" *ngIf="product.length != 0">
+    <div class="card-table">
+        <div class="cart-product">
+            <table class="table table-responsiv">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Totle</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of product; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.title}}</td>
+                        <td><img src="{{item.image}}" width="100px" height="100px" alt=""></td>
+                        <td style="width: 25%;">{{item.description}}</td>
+                        <td style="width: 12%;">${{item.price}}</td>
+                        <td style="width: 12%;">{{item.quantity}}</td>
+                        <td style="width: 12%;">${{item.total}}</td>
+                      
+                        <td><button (click)="removItem(item)" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td><button class="btn btn-danger empty" (click)="emptyItem()">Empty Cart</button></td>
+                        <td><button class="btn btn-primary empty" routerLink="/product">Shop More</button></td>
+                        <td>Grand Total : ${{grandTotal}}</td>
+                        <td><button class="btn btn-success empty" (click)="emptyItem()">CheckOut</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="product.length == 0">
+    <div class="card">
+        <div class="card-title">
+            <h3>My Cart</h3>
+        </div>
+    </div>
+    <div class="cart">
+        <img src="./assets/cart.png" alt="cart null">
+        <h4 style="font-weight: 400;">Your cart is empty!</h4>
+        <h6>Add item to it now</h6>
+        <button routerLink="/product" class="btn btn-primary">Shop now</button>
+    </div>
+</div>
